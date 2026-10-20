@@ -45,7 +45,7 @@ public partial class Main : Node2D
 
 	public void OnGameUppdateScore(int score, int coinscoleced)
 	{
-    GD.Print("fabfaefebf");
+    GD.Print("fa");
 		if(score > Bestscore)
 		{
 			Bestscore = score;
