@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://wbc0w25q7vh7"]
+
+[ext_resource type="Texture2D" uid="uid://b4p3w4476si65" path="res://sprits/enemis/Laser.png" id="1_4ondt"]
+[ext_resource type="Script" uid="uid://c7lg88dbj17yh" path="res://screens/StatikLaser.cs" id="1_jmane"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmane"]
+atlas = ExtResource("1_4ondt")
+region = Rect2(0, 0, 95, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4t8vo"]
+atlas = ExtResource("1_4ondt")
+region = Rect2(95, 0, 95, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gckyh"]
+atlas = ExtResource("1_4ondt")
+region = Rect2(190, 0, 95, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccrmf"]
+atlas = ExtResource("1_4ondt")
+region = Rect2(285, 0, 95, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oyniy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmane")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4t8vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gckyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccrmf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spui7"]
+size = Vector2(80, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyniy"]
+size = Vector2(82, 20)
+
+[node name="StatikLaser" type="StaticBody2D" unique_id=2080200468]
+scale = Vector2(2.5675375, 2.8412259)
+script = ExtResource("1_jmane")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=396533633]
+sprite_frames = SubResource("SpriteFrames_oyniy")
+autoplay = "default"
+frame_progress = 0.9469376
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1797907443]
+shape = SubResource("RectangleShape2D_spui7")
+
+[node name="DeathArea" type="Area2D" parent="." unique_id=153278501]
+collision_layer = 3
+collision_mask = 3
+
+[node name="AreaCollision" type="CollisionShape2D" parent="DeathArea" unique_id=239797509]
+shape = SubResource("RectangleShape2D_oyniy")
+debug_color = Color(0.91390014, 0.19618133, 0.54595447, 0.41960785)

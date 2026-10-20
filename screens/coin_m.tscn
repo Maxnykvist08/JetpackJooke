@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dvxanlnftrknk"]
+
+[ext_resource type="PackedScene" uid="uid://cod7owb1g3kpp" path="res://screens/coin.tscn" id="1_djyar"]
+
+[node name="coinM" type="Node2D" unique_id=1835018946]
+
+[node name="coin" parent="." unique_id=714555253 instance=ExtResource("1_djyar")]
+
+[node name="coin2" parent="." unique_id=513973431 instance=ExtResource("1_djyar")]
+position = Vector2(0, 22)
+
+[node name="coin3" parent="." unique_id=647341341 instance=ExtResource("1_djyar")]
+position = Vector2(0, 47)
+
+[node name="coin4" parent="." unique_id=920797839 instance=ExtResource("1_djyar")]
+position = Vector2(24, -2)
+
+[node name="coin5" parent="." unique_id=1889559409 instance=ExtResource("1_djyar")]
+position = Vector2(24, 22)
+
+[node name="coin6" parent="." unique_id=862606072 instance=ExtResource("1_djyar")]
+position = Vector2(25, 47)
+
+[node name="coin7" parent="." unique_id=1158050648 instance=ExtResource("1_djyar")]
+position = Vector2(0, 70)
+
+[node name="coin8" parent="." unique_id=996692900 instance=ExtResource("1_djyar")]
+position = Vector2(114, 1)
+
+[node name="coin9" parent="." unique_id=782562175 instance=ExtResource("1_djyar")]
+position = Vector2(114, 23)
+
+[node name="coin10" parent="." unique_id=835394594 instance=ExtResource("1_djyar")]
+position = Vector2(114, 48)
+
+[node name="coin11" parent="." unique_id=547681641 instance=ExtResource("1_djyar")]
+position = Vector2(138, -1)
+
+[node name="coin12" parent="." unique_id=680343954 instance=ExtResource("1_djyar")]
+position = Vector2(138, 23)
+
+[node name="coin13" parent="." unique_id=1120034785 instance=ExtResource("1_djyar")]
+position = Vector2(139, 48)
+
+[node name="coin14" parent="." unique_id=933195882 instance=ExtResource("1_djyar")]
+position = Vector2(114, 71)
+
+[node name="coin15" parent="." unique_id=702906537 instance=ExtResource("1_djyar")]
+position = Vector2(26, 71)
+
+[node name="coin16" parent="." unique_id=416736024 instance=ExtResource("1_djyar")]
+position = Vector2(140, 71)
+
+[node name="coin17" parent="." unique_id=419161063 instance=ExtResource("1_djyar")]
+position = Vector2(45, 10)
+
+[node name="coin18" parent="." unique_id=1805233801 instance=ExtResource("1_djyar")]
+position = Vector2(45, 34)
+
+[node name="coin19" parent="." unique_id=1505183305 instance=ExtResource("1_djyar")]
+position = Vector2(68, 26)
+
+[node name="coin20" parent="." unique_id=950649601 instance=ExtResource("1_djyar")]
+position = Vector2(68, 50)
+
+[node name="coin21" parent="." unique_id=1596052034 instance=ExtResource("1_djyar")]
+position = Vector2(91, 11)
+
+[node name="coin22" parent="." unique_id=424005586 instance=ExtResource("1_djyar")]
+position = Vector2(91, 35)

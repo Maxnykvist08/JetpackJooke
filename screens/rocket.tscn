@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dmg24ynas2ghv"]
+
+[ext_resource type="Texture2D" uid="uid://d1bqhvx7p8r5n" path="res://sprits/enemis/laserhelikopter.png" id="1_j2e74"]
+[ext_resource type="Script" uid="uid://bs75yl13fi1b5" path="res://screens/Rocket.cs" id="1_lilps"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lilps"]
+atlas = ExtResource("1_j2e74")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0sux"]
+atlas = ExtResource("1_j2e74")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts0g1"]
+atlas = ExtResource("1_j2e74")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq24j"]
+atlas = ExtResource("1_j2e74")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oyniy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lilps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0sux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts0g1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq24j")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_spui7"]
+radius = 18.983631
+height = 75.97745
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ni0iq"]
+radius = 21.961573
+height = 81.84883
+
+[node name="Rocket" type="StaticBody2D" unique_id=224185774]
+script = ExtResource("1_lilps")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1723477052]
+position = Vector2(-0.9999981, -25)
+rotation = -1.5707964
+scale = Vector2(2.6859345, 2.3416212)
+sprite_frames = SubResource("SpriteFrames_oyniy")
+autoplay = "default"
+frame_progress = 0.14207649
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=547472158]
+rotation = -1.5654312
+shape = SubResource("CapsuleShape2D_spui7")
+
+[node name="DeathArea" type="Area2D" parent="." unique_id=1180924750]
+light_mask = 3
+visibility_layer = 3
+
+[node name="AreaCollisionShape2D" type="CollisionShape2D" parent="DeathArea" unique_id=1109196262]
+rotation = -1.5416862
+shape = SubResource("CapsuleShape2D_ni0iq")

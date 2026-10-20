@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://c5wvv4sf8h4qv"]
+
+[ext_resource type="Script" uid="uid://cdl131pk60f51" path="res://screens/Game.cs" id="1_6nlyh"]
+[ext_resource type="PackedScene" uid="uid://8pip0grkca2c" path="res://screens/player.tscn" id="1_6ydpi"]
+[ext_resource type="PackedScene" uid="uid://wbc0w25q7vh7" path="res://screens/statik_laser.tscn" id="2_3ciuf"]
+[ext_resource type="PackedScene" uid="uid://rg60sus5smxa" path="res://screens/coinOvel.tscn" id="3_he66p"]
+[ext_resource type="PackedScene" uid="uid://dvxanlnftrknk" path="res://screens/coin_m.tscn" id="4_5kag3"]
+[ext_resource type="PackedScene" uid="uid://dmg24ynas2ghv" path="res://screens/rocket.tscn" id="5_5kag3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyniy"]
+size = Vector2(1164, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spui7"]
+size = Vector2(1155, 34.5)
+
+[node name="game" type="Node2D" unique_id=752758674]
+script = ExtResource("1_6nlyh")
+stlaserPackedScene = ExtResource("2_3ciuf")
+coinsPacedScenes = Array[PackedScene]([ExtResource("3_he66p"), ExtResource("4_5kag3")])
+rocketPackedScene = ExtResource("5_5kag3")
+
+[node name="Player" parent="." unique_id=1274773771 instance=ExtResource("1_6ydpi")]
+position = Vector2(203, 583)
+
+[node name="floor and seling" type="StaticBody2D" parent="." unique_id=2013438577]
+
+[node name="top" type="CollisionShape2D" parent="floor and seling" unique_id=645179004]
+position = Vector2(572, 0)
+shape = SubResource("RectangleShape2D_oyniy")
+
+[node name="bottom" type="CollisionShape2D" parent="floor and seling" unique_id=946956205]
+position = Vector2(579.5, 665)
+shape = SubResource("RectangleShape2D_spui7")
+
+[node name="spwanertimer" type="Timer" parent="." unique_id=25465436]
+wait_time = 2.0
+autostart = true
+
+[node name="EnemySpwanMarker" type="Marker2D" parent="." unique_id=456538283]
+position = Vector2(1250, 350)
+
+[node name="TimerTimer" type="Timer" parent="." unique_id=905421720]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1880395831]
+
+[node name="score" type="Label" parent="CanvasLayer" unique_id=1151181649]
+offset_left = 40.0
+offset_top = 67.0
+offset_right = 145.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 36
+text = "Score "
+
+[node name="coins" type="Label" parent="CanvasLayer" unique_id=1889292688]
+offset_left = 41.0
+offset_top = 138.0
+offset_right = 136.0
+offset_bottom = 188.0
+theme_override_font_sizes/font_size = 36
+text = "Coins "
+
+[connection signal="ColectCoin" from="Player" to="." method="OnCoinColect"]
+[connection signal="Death" from="Player" to="." method="OnPlayerDeath"]
+[connection signal="timeout" from="spwanertimer" to="." method="OnSpwanerTimeOut"]
+[connection signal="timeout" from="TimerTimer" to="." method="StartUpp"]

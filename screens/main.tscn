@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://ndh7weh7x7hk"]
+
+[ext_resource type="Script" uid="uid://eum5b6iilhm" path="res://screens/Main.cs" id="1_la406"]
+[ext_resource type="PackedScene" uid="uid://c5wvv4sf8h4qv" path="res://screens/game.tscn" id="1_wtj3h"]
+[ext_resource type="Texture2D" uid="uid://bukaxima60cm8" path="res://sprits/backgrund/back.png" id="2_6b72x"]
+[ext_resource type="Texture2D" uid="uid://2h04febay7m5" path="res://sprits/backgrund/middle.png" id="3_la406"]
+[ext_resource type="Texture2D" uid="uid://c2kfvd2d6uquj" path="res://sprits/backgrund/front.png" id="4_ee7ou"]
+
+[node name="main" type="Node2D" unique_id=981455194]
+script = ExtResource("1_la406")
+gamePackedScene = ExtResource("1_wtj3h")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=635982371]
+repeat_size = Vector2(1000, 0)
+autoscroll = Vector2(-200, 0)
+repeat_times = 3
+
+[node name="backgrund" type="Sprite2D" parent="Parallax2D" unique_id=1282992656]
+position = Vector2(562, 327)
+scale = Vector2(4, 2.986)
+texture = ExtResource("2_6b72x")
+
+[node name="mindgrund" type="Sprite2D" parent="Parallax2D" unique_id=1002811342]
+position = Vector2(565.5, 321)
+scale = Vector2(3.546875, 2.6833334)
+texture = ExtResource("3_la406")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1596074029]
+repeat_size = Vector2(1000, 0)
+autoscroll = Vector2(-200, 0)
+
+[node name="forgraund" type="Sprite2D" parent="Parallax2D2" unique_id=1775032535]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(690, 326.00003)
+scale = Vector2(2.565625, 3.4250004)
+texture = ExtResource("4_ee7ou")
+
+[node name="menu" type="CanvasLayer" parent="." unique_id=1464055931]
+
+[node name="best score text" type="Label" parent="menu" unique_id=97507083]
+offset_left = 329.0
+offset_top = 132.0
+offset_right = 781.0
+offset_bottom = 195.0
+theme_override_font_sizes/font_size = 45
+text = "best score of all time"
+
+[node name="best score" type="Label" parent="menu" unique_id=958684167]
+offset_left = 522.0
+offset_top = 208.0
+offset_right = 591.0
+offset_bottom = 263.0
+theme_override_font_sizes/font_size = 40
+text = "000"
+
+[node name="score text" type="Label" parent="menu" unique_id=51984871]
+offset_left = 447.0
+offset_top = 301.0
+offset_right = 650.0
+offset_bottom = 351.0
+theme_override_font_sizes/font_size = 40
+text = "youre score"
+
+[node name="score" type="Label" parent="menu" unique_id=398129655]
+offset_left = 534.0
+offset_top = 379.0
+offset_right = 594.0
+offset_bottom = 428.0
+theme_override_font_sizes/font_size = 35
+text = "000"
+
+[node name="totel coin text" type="Label" parent="menu" unique_id=1270939546]
+offset_left = 458.0
+offset_top = 431.0
+offset_right = 558.0
+offset_bottom = 486.0
+theme_override_font_sizes/font_size = 40
+text = "total coins"
+
+[node name="total coin" type="Label" parent="menu" unique_id=1385872876]
+offset_left = 529.0
+offset_top = 520.0
+offset_right = 589.0
+offset_bottom = 569.0
+theme_override_font_sizes/font_size = 35
+text = "000"
+
+[node name="Button" type="Button" parent="menu" unique_id=1229015995]
+offset_left = 879.0
+offset_top = 481.0
+offset_right = 990.0
+offset_bottom = 552.0
+theme_override_font_sizes/font_size = 60
+action_mode = 0
+button_mask = 3
+text = "start"
+
+[connection signal="pressed" from="menu/Button" to="." method="OnButtonPressed"]
