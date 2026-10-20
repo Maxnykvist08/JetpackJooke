@@ -10,10 +10,17 @@ public partial class Player : CharacterBody2D
 
     [Signal]
 	public delegate void DeathEventHandler();
+
+	AnimatedSprite2D animatable;
+
+	Timer deathtimer;
+
+	bool isdead = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-	//var animated_sprite_2d = GetChild("PlayerAnimation");
+	 animatable = GetNode<AnimatedSprite2D>("PlayerAnimation");
+	 deathtimer = GetNode<Timer>("DeathTimer");
 	}
 	private int X = 1;
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,9 +32,10 @@ public partial class Player : CharacterBody2D
 	{
 		
 		if(body is StatikLaser)
-		{
-			
-			EmitSignal(SignalName.Death);
+		{	
+			isdead = true;
+			animatable.Play("death");
+			deathtimer.Start();
 		}
 
 	}
@@ -35,20 +43,27 @@ public partial class Player : CharacterBody2D
 	public void OnAreaEnterd(Area2D area){
 		
 		if(area.Name == "DeathArea"){
-			EmitSignal(SignalName.Death);
+			isdead = true;
+			animatable.Play("death");
+			deathtimer.Start();
 		}
 		if(area.Name == "CoinArea"){
 			EmitSignal(SignalName.ColectCoin);
 		}
 	}
 
+	public void DeathTimerTimeout()
+	{
+		EmitSignal(SignalName.Death);
+	}
 	public override void _PhysicsProcess(double delta){
+		if(isdead == false){
 		var mVelocity = Velocity;
 		if (!IsOnFloor())
 		{
 			mVelocity += GetGravity() * (float)delta;
 			
-			//animated_sprite_2d.play("fly")
+			animatable.Play("fly");
 			
 		}
 		if(Input.IsActionPressed("Fly") ){
@@ -65,9 +80,14 @@ public partial class Player : CharacterBody2D
 		{
 			X = 0;
 		}
+		if (IsOnFloor())
+		{
+			animatable.Play("default");
+		}
 		
 		Velocity = mVelocity;
 		MoveAndSlide();
+		}
 	}
 }
 

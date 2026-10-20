@@ -39,11 +39,6 @@ autostart = true
 [node name="EnemySpwanMarker" type="Marker2D" parent="." unique_id=456538283]
 position = Vector2(1250, 350)
 
-[node name="TimerTimer" type="Timer" parent="." unique_id=905421720]
-wait_time = 10.0
-one_shot = true
-autostart = true
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1880395831]
 
 [node name="score" type="Label" parent="CanvasLayer" unique_id=1151181649]
@@ -65,4 +60,3 @@ text = "Coins "
 [connection signal="ColectCoin" from="Player" to="." method="OnCoinColect"]
 [connection signal="Death" from="Player" to="." method="OnPlayerDeath"]
 [connection signal="timeout" from="spwanertimer" to="." method="OnSpwanerTimeOut"]
-[connection signal="timeout" from="TimerTimer" to="." method="StartUpp"]

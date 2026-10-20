@@ -86,7 +86,7 @@ offset_bottom = 569.0
 theme_override_font_sizes/font_size = 35
 text = "000"
 
-[node name="Button" type="Button" parent="menu" unique_id=1229015995]
+[node name="Start" type="Button" parent="menu" unique_id=1229015995]
 offset_left = 879.0
 offset_top = 481.0
 offset_right = 990.0
@@ -96,4 +96,15 @@ action_mode = 0
 button_mask = 3
 text = "start"
 
-[connection signal="pressed" from="menu/Button" to="." method="OnButtonPressed"]
+[node name="Exitgame" type="Button" parent="menu" unique_id=1255964417]
+offset_left = 46.0
+offset_top = 483.0
+offset_right = 337.0
+offset_bottom = 574.0
+theme_override_font_sizes/font_size = 60
+action_mode = 0
+button_mask = 3
+text = "exit game"
+
+[connection signal="pressed" from="menu/Start" to="." method="OnButtonPressed"]
+[connection signal="pressed" from="menu/Exitgame" to="." method="ExitgamePressed"]
